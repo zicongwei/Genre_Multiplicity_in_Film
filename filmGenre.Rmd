@@ -99,10 +99,10 @@ df2 <- df_usa %>%
 
 # Create the plot.
 plot2 <- df2 %>%
-  filter(genre == 'Short' | genre == 'Drama'| genre == 'Comedy') %>%
+  filter(genre == 'Short' | genre == 'Comedy' | genre == 'Musical') %>%
   ggplot(aes(production_year, proportion, col = genre)) +
   geom_line() +
-  ggtitle("Proportion of Short, Drama, and Comedy in Film Genres") +
+  ggtitle("Proportion of Short, and Comedy in Musical") +
   theme_fivethirtyeight() +
   theme(panel.grid.major = element_blank(),
         axis.title.x=element_blank(), axis.title.y=element_blank()) +
@@ -195,27 +195,27 @@ plot4
 
 ```{r message=FALSE, echo=TRUE, warning=FALSE}
 short <- df_usa %>%
-  filter(genre == 'Short' & production_year > 1927) %>%
+  filter(genre == 'Musical' & production_year > 1927) %>%
   group_by(id) %>%
   summarise(production_year = first(production_year))
 
 other_genres <- df_usa %>%
-  filter((genre == 'Western' | genre == 'Comedy' | genre == 'Musical' | genre == 'Documentary' | genre == 'Drama'| genre == 'Music') & production_year > 1927) %>%
+  filter((genre == 'Romance' | genre == 'Comedy' | genre == 'Western' | genre == 'Animation' | genre == 'Western')) %>%
   group_by(id) %>%
   summarise(production_year = first(production_year))
 
 df4 <- df_usa %>%
   #filter(id %in% short$id) %>%
-  #filter(genre != 'Short') %>%
+  #filter(genre != 'Western' & genre != 'Short') %>%
   filter(id %in% short$id & id %in% other_genres$id) %>%
-  filter(genre == 'Western' | genre == 'Comedy' | genre == 'Musical' | genre == 'Documentary' | genre == 'Drama'| genre == 'Music') %>%
+  filter(genre == 'Romance'  | genre == 'Western' | genre == 'Animation' | genre == 'Comedy') %>%
   group_by(production_year, genre) %>%
   summarize(count = n())
 
 plot4 <- df4 %>%
   ggplot(aes(x = production_year, y = count, fill= genre)) +
   geom_bar(stat="identity", position='fill', alpha=0.8) +
-  theme_fivethirtyeight() +
+  theme_fivethirtyeight()  +
   scale_fill_manual(
     values = c("#f7c143", "#556eed", "#f2763c", "#a5a5a5", "#9B002E", "#222222"),
     name = "Film Genre")
