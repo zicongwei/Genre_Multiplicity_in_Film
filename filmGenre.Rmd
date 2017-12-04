@@ -1,13 +1,16 @@
 ---
-title: "Can Comedy Be Horror: Decompose Genres Multiplicity in Films"
-authors: "Dejia Tang, Zicong Wei"
 output:
   html_document:
     code_folding: hide
+    theme: journal
+  pdf_document: default
+authors: Dejia Tang, Zicong Wei
 ---
-
-### GitHub Repository:
-https://github.com/zicongwei/Genre_Multiplicity_in_Film
+# **Can Comedy Be Horror:    **
+# **Decompose Genres Multiplicity in Films**
+**Authors**: Dejia Tang, Zicong Wei   
+**GitHub Repository**: https://github.com/zicongwei/Genre_Multiplicity_in_Film    
+**Last Edit**: "`r format(Sys.time(), '%d %B, %Y')`"   
 
 ```{r message=FALSE, echo=FALSE, warning=FALSE}
 library(mdsr)
@@ -272,8 +275,9 @@ In the golden age of the musical film, comedy and romance contribute a lot to it
 
 As the musical developed into the 1940s and 1950s, the proportion of romance was larger. There were more genres’ courtship plot came to be associated with an underlying value conflict of the society at that time. This kind of film in hollywood, especially the Freed Unit, always have a frivolous male character getting along with a serious female character. The male values entertainment representing the popular culture, and the female values work representing the high culture. Hollywood as a mass culture was trying to challenge the imperative to work and the serious atmosphere that “all have a responsibility to devote themselves to work”. Musicals defensed the entertainment at that time.      
 
-After this classical period, musicals were not favored by the public, especially the old-fashion hollywood musicals. Since 1960s, lots of social movements impacted the society, especially the young, people’s music taste changed, because they were greatly influenced by rock and roll and other popular cultures.      
+After this classical period, musicals were not favored by the public, especially the old-fashion hollywood musicals. Since 1960s, lots of social movements impacted the society, especially the young, people’s music taste changed, because they were greatly influenced by rock and roll and other popular cultures[^1].      
 
 During 1980s to 1990s, animated films became popular, and they overlapped with musicals. Disney used many songs in their animations such as The Little Mermaid, Beauty and the Beast, and the Lion King. They all became blockbuster success. 
 In the 21st century, the musicals film were reborn. Although musicals in general are not influential any more, drama musicals and comedy-drama musicals such as Chicago and La La Land become more popular in musical genres. In recent years, animated musicals like Frozen and Coco also gained popularity among people. 
 
+[^1]: Footnot reference.
