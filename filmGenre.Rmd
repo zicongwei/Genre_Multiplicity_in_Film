@@ -1,8 +1,13 @@
 ---
-title: "Genre Multiplicity in Film History"
+title: "Can Comedy Be Horror: Decompose Genres Multiplicity in Films"
 authors: "Dejia Tang, Zicong Wei"
-output: html_document
+output:
+  html_document:
+    code_folding: hide
 ---
+
+### GitHub Repository:
+https://github.com/zicongwei/Genre_Multiplicity_in_Film
 
 ```{r message=FALSE, echo=FALSE, warning=FALSE}
 library(mdsr)
@@ -11,9 +16,8 @@ library(tidyverse)
 library(ggthemes)
 ```
 
-### Get dataframe using SQL
-### 4=language; 
 ```{r message=FALSE, echo=TRUE, warning=FALSE}
+# Get dataframe using SQL
 db <- dbConnect_scidb(dbname = "imdb")
 
 # Tables are joined using ids to speed things up.
@@ -28,10 +32,7 @@ df <- db %>%
   dbGetQuery(sql) %>%
   filter(production_year < 2017)
 
-glimpse(df)
-```
-### Get dataframe using SQL
-```{r message=FALSE, echo=TRUE, warning=FALSE}
+# Get dataframe using SQL
 df_country <- df %>%
   filter(info_type_id == 8) %>%
   mutate(country = info) %>%
@@ -44,12 +45,10 @@ df_genre <- df %>%
 
 df_country_genre <- df_country %>%
   right_join(df_genre, on = id)
-
-glimpse(df_country_genre)
 ```
 
-### First Chart: genre variety
 ```{r message=FALSE, echo=TRUE, warning=FALSE}
+# First Chart: genre variety
 df_usa <- df_country_genre %>%
   filter(country == 'USA')
 
@@ -74,18 +73,15 @@ df1 <- df1_total %>%
 plot1 <- df1 %>%
   ggplot(aes(production_year, value)) +
   geom_line() +
-  facet_wrap(~factor(value_type, labels = c("Average Number of Genres Per Film", "Total Number of Genres")), scale = "free")
+  facet_wrap(~factor(value_type, labels = c("Average Number of Genres Per Film in the U.S.", "Total Number of Genres in the U.S.")), scale = "free") +
+  ggtitle("Figure 1: Genre Counts of American Films Over time")
 
 # Themes
 plot1 <- plot1 +
   theme_fivethirtyeight() +
   theme(panel.grid.major = element_blank(), axis.title.x=element_blank(), axis.title.y=element_blank())
 
-plot1
-```
-
-### Second Chart: Change of Popularity for Short, Drama and Comedy
-```{r message=FALSE, echo=TRUE, warning=FALSE}
+# Second Chart: Change of Popularity for Short, Drama and Comedy
 # Calculate totol number of movies appeared each year.
 df2_total <- df_usa %>%
   group_by(production_year) %>%
@@ -102,7 +98,7 @@ plot2 <- df2 %>%
   filter(genre == 'Short' | genre == 'Comedy' | genre == 'Musical') %>%
   ggplot(aes(production_year, proportion, col = genre)) +
   geom_line() +
-  ggtitle("Proportion of Short, and Comedy in Musical") +
+  ggtitle("Figure 2: Proportion of Short, Musical, and Comedy in the U.S.") +
   theme_fivethirtyeight() +
   theme(panel.grid.major = element_blank(),
         axis.title.x=element_blank(), axis.title.y=element_blank()) +
@@ -131,16 +127,14 @@ plot2 <- df2 %>%
   geom_text(aes(x = 1927, y = 0.8, label = "First Film with Sound"), 
             size = 3, color = "black")
 
-plot2
-```
-```{r message=FALSE, echo=TRUE, warning=FALSE}
+# Third Chart: Composition of Comedies
 short <- df_usa %>%
   filter(genre == 'Comedy' & production_year > 1927) %>%
   group_by(id) %>%
   summarise(production_year = first(production_year))
 
 other_genres <- df_usa %>%
-  filter((genre == 'Horror' | genre == 'Romance' | genre == 'Family' | genre == 'Drama' | genre == 'Adventure'| genre == 'Animation') & production_year > 1927) %>%
+  filter((genre == 'Horror' | genre == 'Romance' | genre == 'Family' | genre == 'War') & production_year > 1927) %>%
   group_by(id) %>%
   summarise(production_year = first(production_year))
 
@@ -148,7 +142,7 @@ df3 <- df_usa %>%
   #filter(id %in% comedies$id) %>%
   #filter(genre != 'Comedy') %>%
   filter(id %in% short$id & id %in% other_genres$id) %>%
-  filter(genre == 'Horror' | genre == 'Romance' | genre == 'Family' | genre == 'Drama' | genre == 'Adventure'| genre == 'Animation') %>%
+  filter(genre == 'Horror' | genre == 'Romance' | genre == 'Family' | genre == 'War') %>%
   group_by(production_year, genre) %>%
   summarize(count = n())
 
@@ -158,27 +152,25 @@ plot3 <- df3 %>%
   theme_fivethirtyeight() +
   scale_fill_manual(
     values = c("#f7c143", "#556eed", "#f2763c", "#a5a5a5", "#9B002E", "#222222"),
-    name = "Film Genre")
+    name = "Film Genre") +
+  ggtitle("Figure 4: Genre Composition of Comedies Over Time in the U.S.")
 
-plot3
-```
 
-```{r message=FALSE, echo=TRUE, warning=FALSE}
-drama <- df_usa %>%
-  filter(genre == 'Drama' & production_year > 1927) %>%
+
+# Fourth Chart: Composition of Short Films
+short <- df_usa %>%
+  filter(genre == 'Short' & production_year > 1927) %>%
   group_by(id) %>%
   summarise(production_year = first(production_year))
 
 other_genres <- df_usa %>%
-  filter((genre == 'Sci-Fi' | genre == 'Romance' | genre == 'Western' | genre == 'Fantasy' | genre == 'Adventure'| genre == 'Animation') & production_year > 1927) %>%
+  filter((genre == 'Sci-Fi' | genre == 'Romance' |genre == 'Fantasy' | genre == 'Adventure'| genre == 'Animation') & production_year > 1927) %>%
   group_by(id) %>%
   summarise(production_year = first(production_year))
 
 df4 <- df_usa %>%
-  #filter(id %in% drama$id) %>%
-  #filter(genre != 'Drama') %>%
-  filter(id %in% drama$id & id %in% other_genres$id) %>%
-  filter(genre == 'Sci-Fi' | genre == 'Romance' | genre == 'Western' | genre == 'Fantasy' | genre == 'Adventure'| genre == 'Animation') %>%
+  filter(id %in% short$id & id %in% other_genres$id) %>%
+  filter(genre == 'Sci-Fi' | genre == 'Romance' | genre == 'Fantasy' | genre == 'Adventure'| genre == 'Animation') %>%
   group_by(production_year, genre) %>%
   summarize(count = n())
 
@@ -188,80 +180,100 @@ plot4 <- df4 %>%
   theme_fivethirtyeight() +
   scale_fill_manual(
     values = c("#f7c143", "#556eed", "#f2763c", "#a5a5a5", "#9B002E", "#222222"),
-    name = "Film Genre")
+    name = "Film Genre") +
+  ggtitle("Figure 3: Genre Composition of Short Films Over Time in the U.S.")
 
-plot4
-```
 
-```{r message=FALSE, echo=TRUE, warning=FALSE}
-short <- df_usa %>%
+# Fifth Chart: Composition of Musicals
+musical <- df_usa %>%
   filter(genre == 'Musical' & production_year > 1927) %>%
   group_by(id) %>%
   summarise(production_year = first(production_year))
 
 other_genres <- df_usa %>%
-  filter((genre == 'Romance' | genre == 'Comedy' | genre == 'Western' | genre == 'Animation' | genre == 'Western')) %>%
+  filter((genre == 'Romance' | genre == 'Comedy' | genre == 'Western' | genre == 'Animation' | genre == 'Drama')) %>%
   group_by(id) %>%
   summarise(production_year = first(production_year))
 
-df4 <- df_usa %>%
-  #filter(id %in% short$id) %>%
-  #filter(genre != 'Western' & genre != 'Short') %>%
-  filter(id %in% short$id & id %in% other_genres$id) %>%
-  filter(genre == 'Romance'  | genre == 'Western' | genre == 'Animation' | genre == 'Comedy') %>%
+df5 <- df_usa %>%
+  filter(id %in% musical$id & id %in% other_genres$id) %>%
+  filter(genre == 'Romance'  | genre == 'Western' | genre == 'Animation' | genre == 'Comedy' | genre == 'Drama') %>%
   group_by(production_year, genre) %>%
   summarize(count = n())
 
-plot4 <- df4 %>%
+plot5 <- df5 %>%
   ggplot(aes(x = production_year, y = count, fill= genre)) +
   geom_bar(stat="identity", position='fill', alpha=0.8) +
   theme_fivethirtyeight()  +
   scale_fill_manual(
     values = c("#f7c143", "#556eed", "#f2763c", "#a5a5a5", "#9B002E", "#222222"),
-    name = "Film Genre")
-
-plot4
+    name = "Film Genre") +
+  ggtitle("Figure 5: Genre Composition of Musicals Over Time in the U.S.")
 ```
 
-### Problem Statement
-A film can fit more than one genres, and the number of overlapping genres varies throught film history. This research uses IMDB datasset and tries to examine this change of genre overlapping since 1927 when the first motion movie with sound was created. The populatiry of some genres and historical event may influence the complexity of this overlapping. A hypothesis is proposed in this research to explain this change in genre overlapping.  
+While Hollywood is making movies with seemingly repetitive themes, the invention of digital cameras also allows independent film makers to experiment new genres. Is genre number expanding? Does individual genres remain the same meaning over time? How do genres interact with each other?      
 
-### Analysis
-**Below are two plots representing the overall genre's trend in film history.**  
-```{r fig.align="center"}
+Film genre is a blueprint of the industry and a consensus of the society. Producers and audiences envision film’s content based on conventional framework of genre films, but these genres also overlap with each other, providing more diverse features to films. It is noteworthy that in certain period of time, people favor specific genres’ combination, and this popularity of specific genres reflects people’s social attitude and interests. Shorts, Comedies, and Musicals are important categories reflect the genres’ changing trend throughout film history. Their various overlap with other genres represents the change in the U.S. society, such as technical innovation and social improvement.      
+
+## Overall Trend
+```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot1
 ```
 
-1. The total number of genres seems to increase, but it did not change much in the past decades, being 26 in 1920s and about 27 or 28 genres per year in 2000s. 
+A film can fit more than one genres. The number of overlapping genres varies throughout film history. Using IMDB dataset, we examine the change of genre overlapping since 1980 when film was created.      
 
-2. The average of film's genres has been changed significantly. As the first plot shows, this number started decreasing since 1940s, and startes increasing greatly in 2000s. There should be some events happened at that time to explain these drastic changes. 
+The total number of genres increased, and it become fixed around 28 since 1950s.       
 
-3. The huge increase from 2006 to current year indicates that movies made today tend to have overlapping genres in a way that they did not in the past, and older movies tended to fit squarely in one genre, while more recent movies tend to span multiple genres
+More importantly, the average of film genres has been changed significantly. As the first plot shows, this number reaches it peak around 1940s and dramatically decreased after that period. It started increasing greatly again in 2000s. There should be some events happened at that time to explain these drastic changes.      
 
-**By calcualting the proportion of films' genres in each year, some genres have important influence on the changes of genre overlapping.**  
-
-```{r fig.align="center"}
+Also, the huge increase from 2006 to current year indicates that movies made today tend to have overlapping genres in a way that they did not in the past, and older movies tended to fit squarely in one genre, while more recent movies tend to span multiple genres.   
+```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot2
 ```
+Plot2 above presents the proportion of films' genres in each year, some genres have important influence on the changes of genre overlapping.      
 
-**Among all 38 genres in IMDB dataset, Short, Drama, and Comedy have significant proportions. Their increase and decrease may influence the overall genre overlapping.**  
+Comedy, Musical, and Short are three influential genres in IMDB dataset. From this graph, we can see the trend of these genres.       
 
-1. Short is the most important film genre, and its plot looks similiar to the average genre plot. It was decreasing in the past, but has been greatly increased in the recent decade. 
+Short is the most important film genre, and especially in silent area of films, many companies produced mostly or only short films. It was decreasing in the past, but has been greatly increased in recent decade due to the invention of digital camera and the raise of independent films.      
 
-2. Drama and Comedy somehow decrease in the past, and have increased since 2000, but they also have decreasing trends in recent years. 
+Comedy has its peak around 1920s, and since then it decreased. In recent years, more comedy genre show up, as more films tend to add a sense of humor in their plots.      
 
-### Hypothesis
+Musical has a great proportion since 1927 when the movie with sound was invented. The 1930s through the early 1950s are the golden age of the musical film, when the genre's popularity was at its highest in the U.S. “In the 1960s, 1970s, and continuing up to today, the musical film became less of a bankable genre that could be relied upon for sure-fire hits. Audiences for them lessened and fewer musical films were produced as the genre became less mainstream and more specialized.”
 
-1. The 1947 court decesion forced large studios stop block-booking, so that they could not sell a bunch of movies together including some low-quality movies to theaters.This change causes studios to be more selective in the movies they made, resulting in higher production costs and fewer movies made. 
-Because of this reason, some cheap forms of movies may decrease especially short movies. 
+## Short Films
+```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
+plot4
+```
+Now let’s take a closer look at the genre “short film” and its composition. This is a genre rarely comes to people’s mind when they are asked about what kinds of films they like. This may be caused by the fact that the label “short film” is not describing a film’s content or style, but its format: the running time should be less than 40mins. Short films are often screened at film festivals and made by independent filmmakers for non profit and with low budget. They also frequently serve as samples that independent filmmakers produce to gain notice and/or fundings from investors and studios.      
 
-2. In recent decades, independent movies become more and more popular. Lots of awards favorite these movies, such as moonlight and birdman, encouraging directors and producers to make non-traditional feature films, and this may promote more short films. 
+Figure 3 present 5 major subgenres of short films including adventure, animation, fantasy, romance and science fiction. The pattern is almost perceivable at the first glance: short animations dominated the genre for a long time in history but declined in modern era. When short animation was in its golden age, almost all major film companies had specialised units to produce shorts. One milestone of short animation’s decline is the shutdown of Warner Bros., one of the biggest players in this field, in 1969.
+      
+One crucial reason of short animation’s abundance was it’s low-cost property. However, as digital camera became easily accessible for independent film producers, other subgenres would inevitably expand and take over: all other sub genres here except animation have been increasing their shares through history.      
 
-3. Due to technology and media development, it is easy to make digital films in current days. Equipments, editing, and post-production become cheaper. Short films are largely be produced in this context. Meanwhile, they are a typical first stage for new filmmakers, and profesional crews also create short films as an alternative form of expression, comparing with feature films. 
+## Comedy
+```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
+plot3
+```
+Comedy is one of the oldest genre in American cinema starting from the silent era. Figure 4 shows the six important subgenres of comedies with changing popularities.       
 
-4. Drama and Comedy become more popular probably beacause there is a big market and lots of audiences like these genres. Globalization also make movies more care about people's favor. However, since there is an increasting popularity of independt films, drama and comedy films' proportion in the market is decreasing recently. 
+As America entered into World War II, military themes started to appear in comedies as well, such as topics of civil defense, boot-camp and shore-leave. We can see that there’s a small bump of war subgenre around 1940 for this reason.      
 
-**All the assumptions above may partially explain the increase and decrease of genre overlapping in the past 90 years of film history.**  
+Around 1950, television came into the media industry and was filled by family sitcoms. This can explain the large share of family subgenre around then.      
 
-### GitHub Repository:
-https://github.com/zicongwei/IMDBresearch
+Trigger by the success of When Harry Met Sally in 1989, romantic comedy started to win back its popularity, being indicated by a slight increase in romance comedies’ share.      
+
+From plot 4, we can also observe the gain of popular for horror comedies starting around 1970s. Some of them are of anti-war theme like MASH and Catch 22.      
+
+## Musical
+```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
+plot5
+```
+In the golden age of the musical film, comedy and romance contribute a lot to its content. During this classical period, the musicals’ subject was evolving. Around early 1930s, in the first of the major musical “cycles”, the “backstage musical” was prevalent. In these films, song and dance are presented as performances and rehearsals of music shows. Later, in the mid-1930s, the “integrated musical” was popularized. Fred Astaire and Ginger Roger were the typical musical stars of this kind of musical films. Their song and dance contribute to the plot as an expression of character’s emotion.       
+
+As the musical developed into the 1940s and 1950s, the proportion of romance was larger. There were more genres’ courtship plot came to be associated with an underlying value conflict of the society at that time. This kind of film in hollywood, especially the Freed Unit, always have a frivolous male character getting along with a serious female character. The male values entertainment representing the popular culture, and the female values work representing the high culture. Hollywood as a mass culture was trying to challenge the imperative to work and the serious atmosphere that “all have a responsibility to devote themselves to work”. Musicals defensed the entertainment at that time.      
+
+After this classical period, musicals were not favored by the public, especially the old-fashion hollywood musicals. Since 1960s, lots of social movements impacted the society, especially the young, people’s music taste changed, because they were greatly influenced by rock and roll and other popular cultures.      
+
+During 1980s to 1990s, animated films became popular, and they overlapped with musicals. Disney used many songs in their animations such as The Little Mermaid, Beauty and the Beast, and the Lion King. They all became blockbuster success. 
+In the 21st century, the musicals film were reborn. Although musicals in general are not influential any more, drama musicals and comedy-drama musicals such as Chicago and La La Land become more popular in musical genres. In recent years, animated musicals like Frozen and Coco also gained popularity among people. 
+
