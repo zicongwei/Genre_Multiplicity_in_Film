@@ -223,13 +223,14 @@ Film genre is a blueprint of the industry and a consensus of the society. Produc
 plot1
 ```
 
-A film can fit more than one genres. The number of overlapping genres varies throughout film history. Using IMDB dataset, we examine the change of genre overlapping since 1980 when film was created.      
+A film can fit more than one genres. The number of overlapping genres varies throughout film history. Using IMDB dataset, we examine the change of genre overlapping since 1980 when film was created.  
 
-The total number of genres increased, and it become fixed around 28 since 1950s.       
+The total number of genres increased, and it become fixed around 28 since 1950s. More importantly, the average of film genres has been changed significantly.  
 
-More importantly, the average of film genres has been changed significantly. As the first plot shows, this number reaches it peak around 1940s and dramatically decreased after that period. It started increasing greatly again in 2000s. There should be some events happened at that time to explain these drastic changes.      
+The first plot shows that this number reached it peak around 1940s and dramatically decreased after that period. It started increasing greatly again in 2000s. There should be some events happened at that time to explain these drastic changes.  
 
-Also, the huge increase from 2006 to current year indicates that movies made today tend to have overlapping genres in a way that they did not in the past, and older movies tended to fit squarely in one genre, while more recent movies tend to span multiple genres.   
+Also, the huge increase from 2006 to the current year indicates that movies made today tend to have overlapping genres in a way that they did not in the past, and older movies tended to fit squarely in one genre, while more recent movies tend to span multiple genres.
+
 ```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot2
 ```
@@ -239,10 +240,9 @@ Comedy, Musical, and Short are three influential genres in IMDB dataset. From th
 
 Short is the most important film genre, and especially in silent area of films, many companies produced mostly or only short films. It was decreasing in the past, but has been greatly increased in recent decade due to the invention of digital camera and the raise of independent films.      
 
-Comedy has its peak around 1920s, and since then it decreased. In recent years, more comedy genre show up, as more films tend to add a sense of humor in their plots.      
+Comedy has its peak around 1920s, and since then its proportion decreased. In recent years, more comedy genre show up, as more films tend to add a sense of humor in their plots.   
 
-Musical has a great proportion since 1927 when the movie with sound was invented. The 1930s through the early 1950s are the golden age of the musical film, when the genre's popularity was at its highest in the U.S. “In the 1960s, 1970s, and continuing up to today, the musical film became less of a bankable genre that could be relied upon for sure-fire hits. Audiences for them lessened and fewer musical films were produced as the genre became less mainstream and more specialized.”
-
+Musical has a great proportion since 1927 when the movie with sound was invented. The 1930s through the early 1950s are the golden age of the musical film, when the genre's popularity was at its highest in the U.S. However, since 1960s, the musical film became less of a important genre that could be relied upon for hits. Audiences were less and fewer musical films were produced as the genre became less mainstream.  
 ## Short Films
 ```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot4
@@ -271,14 +271,26 @@ From plot 4, we can also observe the gain of popular for horror comedies startin
 ```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot5
 ```
-In the golden age of the musical film, comedy and romance contribute a lot to its content. During this classical period, the musicals’ subject was evolving. Around early 1930s, in the first of the major musical “cycles”, the “backstage musical” was prevalent. In these films, song and dance are presented as performances and rehearsals of music shows. Later, in the mid-1930s, the “integrated musical” was popularized. Fred Astaire and Ginger Roger were the typical musical stars of this kind of musical films. Their song and dance contribute to the plot as an expression of character’s emotion.       
+In the golden age of the musical film, comedy and romance contribute the most to its content. During this classical period, the musicals’ subject was evolving.  
 
-As the musical developed into the 1940s and 1950s, the proportion of romance was larger. There were more genres’ courtship plot came to be associated with an underlying value conflict of the society at that time. This kind of film in hollywood, especially the Freed Unit, always have a frivolous male character getting along with a serious female character. The male values entertainment representing the popular culture, and the female values work representing the high culture. Hollywood as a mass culture was trying to challenge the imperative to work and the serious atmosphere that “all have a responsibility to devote themselves to work”. Musicals defensed the entertainment at that time.      
+Around early 1930s, in the first of the major musical “cycles”, the “backstage musical” was prevalent. In these films, song and dance are presented as performances and rehearsals of music shows.  
 
-After this classical period, musicals were not favored by the public, especially the old-fashion hollywood musicals. Since 1960s, lots of social movements impacted the society, especially the young, people’s music taste changed, because they were greatly influenced by rock and roll and other popular cultures.      
+Later, in the mid-1930s, the “integrated musical” was popularized. Fred Astaire and Ginger Roger were the typical musical stars of this kind of musical films. Their song and dance contribute to the plot as an expression of character’s emotion.  
 
-During 1980s to 1990s, animated films became popular, and they overlapped with musicals. Disney used many songs in their animations such as The Little Mermaid, Beauty and the Beast, and the Lion King. They all became blockbuster success. 
+As the musical developed into the 1940s and 1950s, the proportion of romance was larger. There were more genres’ courtship plot came to be associated with an underlying value conflict of the society at that time.  
+
+This kind of film in hollywood, especially the Freed Unit, always have a frivolous male character getting along with a serious female character, such as *Singin’ in the Rain* and *the Band Wagon*. The entertaining male character represents the popular culture, and the working female values represents the high culture.  
+
+Hollywood as a mass culture was trying to challenge the imperative to work and the serious atmosphere that everyone a responsibility to devote themselves to work. Musicals defensed the pleasure of US popular cultures and various forms of entertainment at that time.  
+
+After this classical period, musicals were no longer favored by the public, especially the old-fashion hollywood musicals. Since 1960s, lots of social movements impacted the society. Especially young people’s music taste have changed, because the extensive influence of rock and roll and new popular cultures.  
+
+During 1980s to 1990s, animated films became popular, and they overlapped with musicals. Disney used many songs in their animations such as The Little Mermaid, Beauty and the Beast, and the Lion King. They all became blockbuster success.   
+
 In the 21st century, the musicals film were reborn. Although musicals in general are not influential any more, drama musicals and comedy-drama musicals such as Chicago and La La Land become more popular in musical genres. In recent years, animated musicals like Frozen and Coco also gained popularity among people. 
+ 
 
 [^1]: WikiPedia: [Short Films](https://en.wikipedia.org/wiki/Short_film)
 [^2]: ["Comedy Films"](http://www.filmsite.org/comedyfilms2.html). Filmsite.org. Retrieved 2012-04-29.
+[^3]: Thomas Schatz, “Film Genre and the Genre Film”
+[^4]: WikiPedia: [Musical film](https://en.wikipedia.org/wiki/Musical_film)
