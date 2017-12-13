@@ -7,10 +7,10 @@ output:
 authors: Dejia Tang, Zicong Wei
 ---
 # **Can Comedy Be Horror:    **
-# **Decompose Genres Multiplicity in Films**
+# **Overlapping Genres in Films**
 **Authors**: Dejia Tang, Zicong Wei   
 **GitHub Repository**: https://github.com/zicongwei/Genre_Multiplicity_in_Film    
-**Last Edit**: "`r format(Sys.time(), '%d %B, %Y')`"   
+**Last Edit**: `r format(Sys.time(), '%d %B, %Y')`   
 
 ```{r message=FALSE, echo=FALSE, warning=FALSE}
 library(mdsr)
@@ -214,50 +214,50 @@ plot5 <- df5 %>%
   ggtitle("Figure 5: Genre Composition of Musicals Over Time in the U.S.")
 ```
 
-While Hollywood is making movies with seemingly repetitive themes, the invention of digital cameras also allows independent film makers to experiment new genres. Is genre number expanding? Does individual genres remain the same meaning over time? How do genres interact with each other?      
+While Hollywood is making movies with seemingly repetitive themes, the invention of digital cameras also allows independent film makers to experiment with new genres. Is the number of genre expanding? Do individual genres remain the same meaning over time? How do genres interact with each other?      
 
-Film genre is a blueprint of the industry and a consensus of the society. Producers and audiences envision film’s content based on conventional framework of genre films, but these genres also overlap with each other, providing more diverse features to films. It is noteworthy that in certain period of time, people favor specific genres’ combination, and this popularity of specific genres reflects people’s social attitude and interests. Shorts, Comedies, and Musicals are important categories reflect the genres’ changing trend throughout film history. Their various overlap with other genres represents the change in the U.S. society, such as technical innovation and social improvement.      
+Film genre is a blueprint of the industry and a consensus of the society. Producers and audiences envision a film’s content based on conventional framework of genre films, but these genres also overlap with each other, providing more diverse features to films. It is noteworthy that in a certain period of time, people favor specific genres’ combination, and this popularity of specific genres that reflects people’s social attitude and interests. Shorts, Comedies, and Musicals are important categories reflect the genres’ changing trend throughout film history. Their various overlap with other genres represents the change in the U.S. society, such as technical innovation and social improvement.      
 
 ## Overall Trend
 ```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot1
 ```
 
-A film can fit more than one genres. The number of overlapping genres varies throughout film history. Using IMDB dataset, we examine the change of genre overlapping since 1980 when film was created.  
+A film can fit more than one genre. The number of overlapping genres varies throughout film history. Using the IMDB dataset, we examine the change of genre overlapping since 1980 when film was created.  
 
-The total number of genres increased, and it become fixed around 28 since 1950s. More importantly, the average of film genres has been changed significantly.  
+The total number of genres increased, and became fixed around 28 as of the 1950s. More importantly, the average number of film genres employed in a single film has been changed significantly over decades.  
 
-The first plot shows that this number reached it peak around 1940s and dramatically decreased after that period. It started increasing greatly again in 2000s. There should be some events happened at that time to explain these drastic changes.  
+The first plot shows that this number reached it peak around 1940s and dramatically decreased after that period. It started increasing greatly again in 2000s. There should be some events that happened at that time to explain these drastic changes.  
 
 Also, the huge increase from 2006 to the current year indicates that movies made today tend to have overlapping genres in a way that they did not in the past, and older movies tended to fit squarely in one genre, while more recent movies tend to span multiple genres.
 
 ```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot2
 ```
-Plot2 above presents the proportion of films' genres in each year, some genres have important influence on the changes of genre overlapping.      
+Plot2 above presents the proportion of films' genres in each year. Some genres have important influence on the changes of genre overlapping.      
 
 Comedy, Musical, and Short are three influential genres in IMDB dataset. From this graph, we can see the trend of these genres.       
 
-Short is the most important film genre, and especially in silent area of films, many companies produced mostly or only short films. It was decreasing in the past, but has been greatly increased in recent decade due to the invention of digital camera and the raise of independent films.      
+Short is the most important film genre, and especially in the silent era of films, many companies produced mostly or only short films. It was decreasing in the past, but has been greatly increased in recent decade due to the invention of digital camera and the raise of independent films.      
 
-Comedy has its peak around 1920s, and since then its proportion decreased. In recent years, more comedy genre show up, as more films tend to add a sense of humor in their plots.   
+Comedy has its peak around 1920s, and since then its proportion has decreased. In recent years, more comedy genres have shown up, as more films have tended to add a sense of humor in their plots.   
 
-Musical has a great proportion since 1927 when the movie with sound was invented. The 1930s through the early 1950s are the golden age of the musical film, when the genre's popularity was at its highest in the U.S. However, since 1960s, the musical film became less of a important genre that could be relied upon for hits. Audiences were less and fewer musical films were produced as the genre became less mainstream.  
+The musical has a great proportion since 1927 when the movie with sound was invented. The 1930s through the early 1950s are the golden age of the musical film, when the genre's popularity was at its highest in the U.S. However, since 1960s, the musical film has become less of an important genre that could be relied upon for hits. Audiences were smaller and fewer musical films were produced as the genre became less mainstream[^1].  
 ## Short Films
 ```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot4
 ```
-Now let’s take a closer look at the genre “short film” and its composition. This is a genre rarely comes to people’s mind when they are asked about what kinds of films they like. This may be caused by the fact that the label “short film” is not describing a film’s content or style, but its format: the running time should be less than 40mins. Short films are often screened at film festivals and made by independent filmmakers for non profit and with low budget. They also frequently serve as samples that independent filmmakers produce to gain notice and/or fundings from investors and studios.      
+Now let’s take a closer look at the genre “short film” and its composition. This genre rarely comes to people’s minds when they are asked about what kinds of films they like. This may be caused by the fact that the label “short film” is not describing a film’s content or style, but its format: the running time should be less than 40mins. Short films are often screened at film festivals and made by independent filmmakers for non profit and with low budget. They also frequently serve as samples that independent filmmakers produce to gain notice and/or fundings from investors and studios.      
 
-Figure 3 present 5 major overlaping genres of short films including adventure, animation, fantasy, romance and science fiction. The pattern is almost perceivable at the first glance: short animations dominated the short films for a long time in history but gradually declined in modern era. When short animation was in its golden age, almost all major film companies had specialised units to produce shorts[^1]. One milestone of short animation’s decline is the shutdown of [Warner Bros. Cartoons, Inc.](https://en.wikipedia.org/wiki/Warner_Bros._Cartoons), one of the biggest players of this field, in 1969.
+Figure 3 present 5 major overlaping genres of short films including adventure, animation, fantasy, romance and science fiction. The pattern is almost perceivable at the first glance: short animations dominated the category for a long time in history but gradually declined in modern era. When short animation was in its golden age, almost all major film companies had specialised units to produce shorts[^2]. One milestone of short animation’s decline is the shutdown of [Warner Bros. Cartoons, Inc.](https://en.wikipedia.org/wiki/Warner_Bros._Cartoons), one of the biggest players of this field, in 1969.
       
-One crucial reason of short animation’s abundance in history was it’s low-cost property. However, as digital camera became easily accessible for independent film producers, other subgenres would inevitably expand and take over: all other sub genres here except animation have been increasing their shares through history.      
+One crucial reason for short animation’s abundance in history was low cost. However, as digital cameras became easily accessible for independent film producers, other subgenres inevitably expanded and took over: all other sub genres here except animation have been increasing their shares through history.      
 
 ## Comedy
 ```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot3
 ```
-Comedy is one of the oldest genre in American cinema starting from the silent era. Figure 4 shows the six important genres overalpped with comedies and their changing popularities[^2].       
+Comedy is one of the oldest genre in American cinema since the silent era. Figure 4 shows the six important genres overalpped with comedies and their changing popularities[^3].       
 
 As the U.S. entered into World War II, military themes started to appear in comedies as well, such as topics of civil defense, boot-camp and shore-leave. We can see that there’s a small bump of war subgenre around 1940 for this reason.      
 
@@ -273,7 +273,7 @@ plot5
 ```
 In the golden age of the musical film, comedy and romance contribute the most to its content. During this classical period, the musicals’ subject was evolving.  
 
-Around early 1930s, in the first of the major musical “cycles”, the “backstage musical” was prevalent. In these films, song and dance are presented as performances and rehearsals of music shows.  
+Around the early 1930s, in the first of the major musical “cycles”, the “backstage musical” was prevalent. In these films, song and dance are presented as performances and rehearsals of music shows.  
 
 Later, in the mid-1930s, the “integrated musical” was popularized. Fred Astaire and Ginger Roger were the typical musical stars of this kind of musical films. Their song and dance contribute to the plot as an expression of character’s emotion.  
 
@@ -281,16 +281,16 @@ As the musical developed into the 1940s and 1950s, the proportion of romance was
 
 This kind of film in hollywood, especially the Freed Unit, always have a frivolous male character getting along with a serious female character, such as *Singin’ in the Rain* and *the Band Wagon*. The entertaining male character represents the popular culture, and the working female values represents the high culture.  
 
-Hollywood as a mass culture was trying to challenge the imperative to work and the serious atmosphere that everyone a responsibility to devote themselves to work. Musicals defensed the pleasure of US popular cultures and various forms of entertainment at that time.  
+Hollywood as a mass culture was trying to challenge the imperative to work and the serious atmosphere that insisted that everyone must devote themselves to work. Musicals defensed the pleasure of US popular cultures and various forms of entertainment at that time[^4].  
 
 After this classical period, musicals were no longer favored by the public, especially the old-fashion hollywood musicals. Since 1960s, lots of social movements impacted the society. Especially young people’s music taste have changed, because the extensive influence of rock and roll and new popular cultures.  
 
-During 1980s to 1990s, animated films became popular, and they overlapped with musicals. Disney used many songs in their animations such as The Little Mermaid, Beauty and the Beast, and the Lion King. They all became blockbuster success.   
+During 1980s to 1990s, animated films became popular, and they overlapped with musicals. Disney used many songs in their animations such as The Little Mermaid, Beauty and the Beast, and the Lion King. They all became blockbuster successes.   
 
 In the 21st century, the musicals film were reborn. Although musicals in general are not influential any more, drama musicals and comedy-drama musicals such as Chicago and La La Land become more popular in musical genres. In recent years, animated musicals like Frozen and Coco also gained popularity among people. 
  
 
-[^1]: WikiPedia: [Short Films](https://en.wikipedia.org/wiki/Short_film)
-[^2]: ["Comedy Films"](http://www.filmsite.org/comedyfilms2.html). Filmsite.org. Retrieved 2012-04-29.
-[^3]: Thomas Schatz, “Film Genre and the Genre Film”
-[^4]: WikiPedia: [Musical film](https://en.wikipedia.org/wiki/Musical_film)
+[^1]: WikiPedia: [Musical film](https://en.wikipedia.org/wiki/Musical_film)
+[^2]: WikiPedia: [Short Films](https://en.wikipedia.org/wiki/Short_film)
+[^3]: ["Comedy Films"](http://www.filmsite.org/comedyfilms2.html). Filmsite.org. Retrieved 2012-04-29.
+[^4]: Thomas Schatz, “Film Genre and the Genre Film”
