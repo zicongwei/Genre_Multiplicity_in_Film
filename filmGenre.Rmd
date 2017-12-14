@@ -225,14 +225,14 @@ A film can fit more than one genre. The number of overlapping genres varies thro
 
 The total number of genres increased, and became fixed around 28 as of the 1950s. More importantly, the average number of film genres employed in a single film has been changed significantly over decades.  
 
-The first plot shows that this number reached it peak around 1940s and dramatically decreased after that period. It started increasing greatly again in 2000s. There should be some events that happened at that time to explain these drastic changes.  
+The first plot shows that this number reached it peak around 1940s and dramatically decreased after that period. It started increasing greatly again in 2000s. There should be some events at that time to explain the drastic changes.  
 
-Also, the huge increase from 2006 to the current year indicates that movies made today tend to have overlapping genres in a way that they did not in the past, and older movies tended to fit squarely in one genre, while more recent movies tend to span multiple genres.
+Also, the increase from 2006 indicates that movies made today tend to have overlapping genres that are different form the past. Old movies tended to fit squarely in one genre, while more recent movies tend to span multiple genres.
 
 ```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot2
 ```
-Plot2 above presents the proportion of films' genres in each year. Some genres have important influence on the changes of genre overlapping.      
+Plot2 presents the proportion of films' genres in each year. Some genres have important influence on the genre overlapping.      
 
 Comedy, Musical, and Short are three influential genres in IMDB dataset. From this graph, we can see the trend of these genres.         
 
@@ -276,11 +276,11 @@ Hollywood musicals, especially the Freed Unit, have a frivolous male character g
 
 Hollywood as a mass culture was trying to challenge the imperative to work and the serious atmosphere. Musicals defensed the pleasure of US popular cultures and various forms of entertainment[^4].  
 
-After this classical period, musicals were no longer favored by the public, especially the old-fashion hollywood musicals. Since 1960s, lots of social movements impacted the society. Especially young people’s music tastes have changed, because the extensive influence of rock and roll and new popular cultures.  
+After this classical period, musicals were no longer favored by the public, especially the old-fashion hollywood musicals. Since 1960s, lots of social movements impacted the society. Especially young people’s music tastes have changed, because the influence of rock and roll and new popular cultures.  
 
-During 1980s to 1990s, animated films became popular with musicals, such as Disney's films, *The Little Mermaid*, *Beauty and the Beast*, and *Lion King*. They all became blockbuster successes.   
+During 1980s to 1990s, animated films became popular with musicals, such as Disney's films *Beauty and the Beast* and *Lion King*. They all became blockbuster successes.   
 
-In the 21st century, the musicals film was reborn. Although musicals in general are not influential any more, drama musicals and comedy-drama musicals such as Chicago and La La Land become more popular in musical genres. In recent years, animated musicals like Frozen and Coco also gained popularity among people. 
+In the 21st century, the musicals film was reborn. Drama musicals and comedy-drama musicals such as Chicago and La La Land become more popular in musical genres. In recent years, animated musicals like Frozen and Coco also gained popularity among people. 
 
 By analyzing the genre coverage of films recorded in IMDB, we found that vast scale of social and technological changes may reshape the film industry’s genre composition. However, we also found that some trends seem to be immune to the changing waves. For example, the composition of musical has not changed a lot across film history.
  
