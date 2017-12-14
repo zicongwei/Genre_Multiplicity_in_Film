@@ -281,6 +281,8 @@ After this classical period, musicals were no longer favored by the public, espe
 During 1980s to 1990s, animated films became popular with musicals, such as Disney's films, *The Little Mermaid*, *Beauty and the Beast*, and *Lion King*. They all became blockbuster successes.   
 
 In the 21st century, the musicals film was reborn. Although musicals in general are not influential any more, drama musicals and comedy-drama musicals such as Chicago and La La Land become more popular in musical genres. In recent years, animated musicals like Frozen and Coco also gained popularity among people. 
+
+By analyzing the genre coverage of films recorded in IMDB, we found that vast scale of social and technological changes may reshape the film industry’s genre composition. However, we also found that some trends seem to be immune to the changing waves. For example, the composition of musical has not changed a lot across film history.
  
 [^1]: GitHub Repository: https://github.com/zicongwei/Genre_Multiplicity_in_Film
 [^2]: WikiPedia: [Short Films](https://en.wikipedia.org/wiki/Short_film)
