@@ -223,9 +223,9 @@ plot1
 
 A film can fit more than one genre. The number of overlapping genres varies throughout film history. Using the IMDB dataset, we examine the change of genre overlapping since 1980 when film was created[^1].  
 
-The total number of genres increased, and became fixed around 28 as of the 1950s. More importantly, the average number of film genres employed in a single film has been changed significantly over decades.  
+The total number of genres increased, and became fixed around 28 in the 1950s. More importantly, the average number of film genres employed in a single film has been changed significantly over decades.  
 
-The first plot shows that this number reached it peak around 1940s and dramatically decreased after that period. It started increasing greatly again in 2000s. There should be some events at that time to explain the drastic changes.  
+The first plot shows that this number reached its peak around 1940s and dramatically decreased after that period. It increased greatly again in 2000s. There should be some events at that time to explain the drastic changes.  
 
 Also, the increase from 2006 indicates that movies made today tend to have overlapping genres that are different form the past. Old movies tended to fit squarely in one genre, while more recent movies tend to span multiple genres.
 
