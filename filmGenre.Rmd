@@ -269,21 +269,21 @@ From plot 4, we can also observe the gain of popular for horror comedies startin
 ```{r message=FALSE, echo=TRUE, warning=FALSE, fig.align="center", fig.width=10, fig.height=6.5}
 plot5
 ```
-In the golden age of the musical film, comedy and romance contribute the most to its content. During this classical period, the musicals’ subject was evolving.  
+In the golden age of the musical film, comedy and romance contribute the most to its content.  
 
-Around the early 1930s, in the first of the major musical “cycles”, the “backstage musical” was prevalent. In these films, song and dance are presented as performances and rehearsals of music shows.  
+Around the early 1930s, in the first major musical “cycles”, the “backstage musical” was prevalent. In these films, song and dance are presented as performances and rehearsals of music shows.  
 
-Later, in the mid-1930s, the “integrated musical” was popularized. Fred Astaire and Ginger Roger were the typical musical stars of this kind of musical films. Their song and dance contribute to the plot as an expression of character’s emotion.  
+Later, in the mid-1930s, the “integrated musical” was popularized. Fred Astaire and Ginger Roger were the typical musical stars of this kind. The song and dance contribute to the plot as an expression of characters’ emotion.  
 
-As the musical developed into the 1940s and 1950s, the proportion of romance was larger. There were more genres’ courtship plot came to be associated with an underlying value conflict of the society at that time.  
+As the musical developed into the 1940s and 1950s, romance's proportion was larger. There were more genres’ courtship plot came to be associated with an underlying value conflict of the society at that time.  
 
-This kind of film in Hollywood, especially the Freed Unit, always have a frivolous male character getting along with a serious female character, such as *Singin’ in the Rain* and *the Band Wagon*. The entertaining male character represents the popular culture, and the working female values represents the high culture.  
+Hollywood musicals, especially the Freed Unit, have a frivolous male character getting along with a serious female character, such as *Singin’ in the Rain* and *the Band Wagon*. The entertaining male character represents the popular culture, and the working female values represents the high culture.  
 
-Hollywood as a mass culture was trying to challenge the imperative to work and the serious atmosphere that insisted that everyone must devote themselves to work. Musicals defensed the pleasure of US popular cultures and various forms of entertainment at that time[^5].  
+Hollywood as a mass culture was trying to challenge the imperative to work and the serious atmosphere. Musicals defensed the pleasure of US popular cultures and various forms of entertainment[^5].  
 
 After this classical period, musicals were no longer favored by the public, especially the old-fashion hollywood musicals. Since 1960s, lots of social movements impacted the society. Especially young people’s music tastes have changed, because the extensive influence of rock and roll and new popular cultures.  
 
-During 1980s to 1990s, animated films became popular, and they overlapped with musicals. Disney used many songs in their animations such as The Little Mermaid, Beauty and the Beast, and the Lion King. They all became blockbuster successes.   
+During 1980s to 1990s, animated films became popular with musicals, such as Disney's films, *The Little Mermaid*, *Beauty and the Beast*, and *Lion King*. They all became blockbuster successes.   
 
 In the 21st century, the musicals film was reborn. Although musicals in general are not influential any more, drama musicals and comedy-drama musicals such as Chicago and La La Land become more popular in musical genres. In recent years, animated musicals like Frozen and Coco also gained popularity among people. 
  
