@@ -282,6 +282,8 @@ During 1980s to 1990s, animated films became popular with musicals, such as Disn
 
 In the 21st century, the musicals film was reborn. Drama musicals and comedy-drama musicals such as Chicago and La La Land become more popular in musical genres. In recent years, animated musicals like Frozen and Coco also gained popularity among people. 
 
+Conclusion & Counter-Argument
+
 By analyzing the genre coverage of films recorded in IMDB, we found that vast scale of social and technological changes may reshape the film industry’s genre composition. However, we also found that some trends seem to be immune to the changing waves. For example, the composition of musical has not changed a lot across film history.
  
 [^1]: GitHub Repository: https://github.com/zicongwei/Genre_Multiplicity_in_Film
